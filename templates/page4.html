@@ -1,0 +1,74 @@
+
+{% extends "MyBase.html" %}
+
+
+{% block content %} 
+
+<br>
+<br>
+
+<h3>Ajouter un article (enfant)</h3>
+<br>
+<br>
+<div class="container">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th class="col-xs-1">Id</th>
+      <th class="col-xs-1">Article</th>
+      <th class="col-xs-1">Date de création</th>
+      <th class="col-xs-1">Date en lettre</th>
+      <th class="col-xs-1">Epoch Creation</th>
+      <th class="col-xs-1">Client_id</th>
+      <th class="col-xs-1">Supprime</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for l in datas %}
+    <tr>
+      <td>{{ l['id'] }}</td>
+      <td>{{ l['article'] }}</td>
+      <td>{{ l['dateCreation'] }}</td>
+      <td>{{ l['dateLongueTexteCreation'] }}</td>      
+      <td>{{ l['epochCreation'] }}</td>
+      <td>{{ l['client_id'] }}</td>
+      <td>{{ l['supprime'] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+<form action="/page4" method="post">
+  <center>
+    <div class="d-flex flex-row">
+      
+    
+   
+    <div class="container mt-1">
+      <h4> ID Client :</h4>
+        <input type="text" class="form-control" name="idclient" placeholder="ID client ">
+        <h4> Nom de l'article:</h4>
+        <input type="text" class="form-control" name="nom" placeholder="article">
+    </div>
+    
+      
+    </div>
+    <button type="submit" class="btn btn-primary" id="btnSave" >Ajouter</button>
+  </center>
+
+</form>
+
+
+
+
+{% endblock content %}
+
+
+{% block scripts %}
+{{ super() }}
+
+<script type="text/javascript" src="static/page4.js"></script>
+
+{% endblock %} 

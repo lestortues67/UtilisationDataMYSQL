@@ -1,0 +1,91 @@
+{% extends "MyBase.html" %}
+
+
+
+
+{% block content %}
+
+<br>
+<br>
+<br>
+
+
+
+<div class="container">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Date de création</th>
+      <th>Date en lettre</th>
+      <th>Epoch Creation</th>
+      <th>Nom</th>
+      <th>Supprime</th>
+      <th>Uuid</th>
+      <th class="text-center" colspan="2">Les boutons</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for l in datas %}
+    <tr>
+      <td>{{ l['id'] }}</td>
+      <td>{{ l['dateCreation'] }}</td>
+      <td>{{ l['dateLongueTexteCreation'] }}</td>      
+      <td>{{ l['epochCreation'] }}</td>
+      <td data-nom={{ l['nom'] }}>{{ l['nom'] }}</td>
+      <td>{{ l['supprime'] }}</td>
+      <td>{{ l['uuid'] }}</td>
+      <td><button class="btn btn-primary" id="btnEdit" data-id={{l['id']}} data-nom={{ l['nom'] }}>Edit</button></td>
+      <td><button class="btn btn-danger" id="btnDelete"  data-id={{l['id']}}>Supprimer</button></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="blogModal" tabindex="-1" aria-labelledby="blogModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="texteTitre">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="modal-body">
+        <div class="form-group">
+    <label for="exampleFormControlTextarea1">Description</label>
+    <input type="text" class="form-control" id="texteDescription" ></input>
+  </div>
+
+      </div>
+      <div class="modal-footer">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value=0 id="checkBoxTermine">
+          <label class="form-check-label" for="flexCheckDefault">
+            Terminé 
+          </label>
+        </div>
+
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary modifier" id="btnEnregistrer">Enregistrer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+
+{% block scripts %}
+{{ super() }}
+
+<script src="static/page3.js" type="text/javascript" language="javascript"> 
+</script>
+{% endblock scripts %}
+
+
+
+
+
+
+

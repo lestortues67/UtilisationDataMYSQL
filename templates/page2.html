@@ -1,0 +1,29 @@
+
+{% extends "MyBase.html" %}
+
+
+{% block content %} 
+
+<br>
+<br>
+
+
+
+<form action="/page2" method="post">
+  <center>
+    <input type="text" name="nom" placeholder="nom">
+    <button type="submit" class="btn btn-primary" id="btnSave" >Enregistrer/Save</button>
+  </center>
+
+</form>
+
+
+{% endblock content %}
+
+
+{% block scripts %}
+{{ super() }}
+
+
+
+{% endblock %} 

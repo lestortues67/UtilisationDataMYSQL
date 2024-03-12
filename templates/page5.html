@@ -1,0 +1,84 @@
+
+{% extends "MyBase.html" %}
+
+
+{% block content %} 
+
+<br>
+<br>
+
+<h3>Ajouter un article (enfant)</h3>
+<br>
+<br>
+
+
+<div class="container">
+  <form action="/ajouterclientpro" method="post">
+  <div class="row border border-primary">
+    <div class="col border border-primary">
+      Client : 
+      <input type="text" name="nom">
+    </div>
+    <div class="col border border-primary">
+      <button type="submit" class="btn btn-primary">Envoyer</button>
+    </div>
+    <div class="col border border-primary">
+      Les ID des clients
+      <textarea id="client_id" ></textarea>
+    </div>
+  </div>
+  </form>
+   
+<form action="/ajoutercommande" method="post">
+  <div class="row border border-primary">
+    <div class="col border border-primary">
+      Commande : 
+      <input type="text" name="commande" placeholder="client_id">
+    </div>
+    <div class="col border border-primary">
+      <button class="btn btn-primary">Envoyer</button>
+    </div>
+    <div class="col border border-primary">
+      Les ID des commandes
+      <textarea id="commande_id" ></textarea>
+    </div>
+  </div>
+</form>
+
+
+<form action="/ajouterarticle" method="post">
+  <div class="row border border-primary">
+    <div class="col border border-primary">
+      Article : 
+      <input  type="text" id="article" name="article">
+      <input type="text" id="commande_id" name="commande_id" placeholder="commande_id">
+    </div>
+    <div class="col border border-primary">
+      <button type="susbmit" class="btn btn-primary">Envoyer</button>
+    </div>
+    <div class="col border border-primary">
+      Les ID des clients
+      <textarea id="client_id_article" ></textarea>
+    </div>
+  </div>
+</form>
+</div>
+
+
+
+
+
+ <div class="container" id="afficheDatas">
+   
+ </div>
+
+
+{% endblock content %}
+
+
+{% block scripts %}
+{{ super() }}
+
+<script type="text/javascript" src="static/page5.js"></script>
+
+{% endblock %} 

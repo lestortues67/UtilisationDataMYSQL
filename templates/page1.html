@@ -1,0 +1,46 @@
+{% extends "MyBase.html" %}
+
+
+
+
+{% block content %}
+<div class="container">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Date de création</th>
+      <th>Date en lettre</th>
+      <th>Epoch Creation</th>
+      <th>Nom</th>
+      <th>Supprime</th>
+      <th>Uuid</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for l in datas %}
+    <tr>
+      <td>{{ l['id'] }}</td>
+      <td>{{ l['dateCreation'] }}</td>
+      <td>{{ l['dateLongueTexteCreation'] }}</td>      
+      <td>{{ l['epochCreation'] }}</td>
+      <td>{{ l['nom'] }}</td>
+      <td>{{ l['supprime'] }}</td>
+      <td>{{ l['uuid'] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+
+
+
+{% endblock content %}
+
+
+
+
+
+
+
